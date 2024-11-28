@@ -15,7 +15,6 @@ const schema = a.schema({
       isDone: a.boolean(),
     })
     .authorization((allow) => [
-      allow.ownerDefinedIn('id').to(['read']),
       allow.owner().to(["read", "create", "update", "delete"]),
     ]),
 });
