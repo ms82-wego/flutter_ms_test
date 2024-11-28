@@ -14,7 +14,10 @@ const schema = a.schema({
       amount: a.float(),
       isDone: a.boolean(),
     })
-    .authorization(allow => [allow.owner()]),
+    .authorization((allow) => [
+      allow.ownerDefinedIn('id').to(['read']),
+      allow.owner().to(["read", "create", "update", "delete"]),
+    ]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
