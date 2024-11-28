@@ -8,11 +8,10 @@ and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
   Todo: a
-    .model({    
-      id: a.id().required(),  
-      title: a.string().required(),        
+    .model({     
+      title: a.string(),        
       description: a.string(), 
-      amount: a.float().required(),
+      amount: a.float(),
       isDone: a.boolean(),
     })
     .authorization(allow => [allow.owner()]),
