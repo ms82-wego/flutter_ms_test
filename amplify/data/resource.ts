@@ -13,6 +13,15 @@ const schema = a.schema({
       isDone: a.boolean(),
     })
     .authorization(allow => [allow.owner()]),
+
+    Item: a
+    .model({
+      id: a.id().required(),              
+      title: a.string().required(),        
+      description: a.string(), 
+      amount: a.float().required(),        
+    })
+    .authorization(allow => [allow.owner()]), 
 });
 
 export type Schema = ClientSchema<typeof schema>;
