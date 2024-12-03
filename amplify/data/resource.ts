@@ -16,6 +16,7 @@ const schema = a.schema({
     })
     .authorization((allow) => [
       allow.owner().to(["read", "create", "update", "delete"]),
+      allow.authenticated().to(["read", "create", "update", "delete"]), 
     ]),
 });
 
